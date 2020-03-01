@@ -3,8 +3,120 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>募集画像ジェネレーター</title>
+		<title>
+			BOSYU GENERATOR - あなたの文字を、見やすく影響力のある画像に
+		</title>
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
-	<body></body>
+	<body>
+		<div class="container">
+			<div class="has-text-centered">
+				<h1 class="title is-1" style="margin-top: 1em;">
+					BOSYU GENERATOR
+				</h1>
+				<p class="subtitle">
+					あなたの文字を、見やすく影響力のある画像に
+				</p>
+				<div class="columns">
+					<div class="column"></div>
+					<div class="column is-8">
+						<div class="card" style="margin-top: 1em;">
+							<div class="card-content">
+								<div class="preview-wrapper">
+									<canvas id="preview"></canvas>
+								</div>
+							</div>
+						</div>
+						<div style="margin-top: 2em;">
+							<div class="field">
+								<label class="label is-medium">タイトル</label>
+								<div class="control">
+									<input
+										class="input is-rounded is-medium"
+										id="title"
+										type="text"
+										placeholder="あなたの文字を、見やすく影響力のある画像に"
+									/>
+								</div>
+							</div>
+
+							<div class="field" style="margin-top: 1em;">
+								<label class="label is-medium">本文</label>
+								<div class="control">
+									<textarea
+										class="textarea is-medium"
+										id="body"
+										placeholder="文字を画像にするだけで、影響力はグンと上がります⤴"
+										style="height: 250px;"
+									></textarea>
+								</div>
+							</div>
+							<div class="field" style="margin-top: 2em;">
+								<label class="label is-medium"
+									>出力サイズ(16:9になるように調整してください)</label
+								>
+								<div class="columns" style="margin-top: 1em;">
+									<div class="column">
+										<label class="label is-medium"
+											>縦</label
+										>
+										<div class="field has-addons">
+											<p class="control">
+												<input
+													class="input is-rounded is-medium"
+													id="height"
+													type="number"
+													value="1025"
+												/>
+											</p>
+											<p class="control">
+												<a
+													class="button is-rounded is-medium is-static"
+												>
+													px
+												</a>
+											</p>
+										</div>
+									</div>
+									<div class="column">
+										<label class="label is-medium"
+											>横</label
+										>
+										<div class="field has-addons">
+											<p class="control">
+												<input
+													class="input is-rounded is-medium"
+													id="width"
+													type="number"
+													value="576"
+												/>
+											</p>
+											<p class="control">
+												<a
+													class="button is-rounded is-medium is-static"
+												>
+													px
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column"></div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer" style="margin-top: 10em;">
+			<div class="content has-text-centered">
+				<p>
+					暗号資産古物商市場 株式会社 © 2020
+				</p>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
 </html>
