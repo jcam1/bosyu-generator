@@ -76,6 +76,10 @@ backgroundPickr.on("save", color => {
 	updateText();
 });
 
+fontPickr.on("save", () => {
+	updateText();
+});
+
 /* methods */
 function updateXY() {
 	height = document.getElementById("height").value;
@@ -89,7 +93,7 @@ function updateText() {
 	ctx.clearRect(0, 0, preview.width, preview.height);
 
 	backgroundDraw(width, height, backgroundPickr.getColor().toRGBA());
-	generator(title, body, width, height, ctx);
+	generator(title, body, width, height, fontPickr.getColor().toRGBA(), ctx);
 }
 
 function backgroundDraw(width, height, color) {

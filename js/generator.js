@@ -1,29 +1,29 @@
 const titleSettings = {
 	font: 'bold 73px "Nano Sans CJK JP"',
-	lineHeight: 80,
-	color: "#333333"
+	lineHeight: 80
 };
 
 const bodySettings = {
-	font: '30px "Nano Sans CJK JP"',
-	lineHeight: 38,
-	color: "#666666"
+	font: '35px "Nano Sans CJK JP"',
+	lineHeight: 38
 };
 
 const padding = 80;
+const margin = 40;
 
-function generator(title, body, width, height, ctx) {
+function generator(title, body, width, height, color, ctx) {
 	const lineWidth = width - padding * 2;
 
 	ctx.font = titleSettings.font;
+	ctx.fillStyle = `rgba(${color[0]},${color[1]},${color[2]}, ${color[3]})`;
 
 	const titleLines = splitByMeasureWidth(title, lineWidth, ctx);
 	const titleLineCnt = titleLines.length;
+	const titleHeight = titleLines.length * titleSettings.lineHeight;
+
+	console.log(titleHeight);
 
 	ctx.textBaseline = "top";
-
-	ctx.fillStyle = titleSettings.color;
-	ctx.font = titleSettings.font;
 
 	for (let index = 0; index < titleLineCnt; index++) {
 		const element = titleLines[index];
@@ -31,6 +31,22 @@ function generator(title, body, width, height, ctx) {
 			element,
 			padding,
 			padding + titleSettings.lineHeight * index
+		);
+	}
+
+	ctx.font = bodySettings.font;
+	ctx.fillStyle = `rgba(${color[0]},${color[1]},${color[2]}, ${color[3]})`;
+
+	const bodyLines = splitByMeasureWidth(body, lineWidth, ctx);
+
+	const bodyLineCnt = bodyLines.length;
+
+	for (let index = 0; index < bodyLineCnt; index++) {
+		const element = bodyLines[index];
+		ctx.fillText(
+			element,
+			padding,
+			padding + (titleHeight + margin) + bodySettings.lineHeight * index
 		);
 	}
 }
