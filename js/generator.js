@@ -21,8 +21,6 @@ function generator(title, body, width, height, color, ctx) {
 	const titleLineCnt = titleLines.length;
 	const titleHeight = titleLines.length * titleSettings.lineHeight;
 
-	console.log(titleHeight);
-
 	ctx.textBaseline = "top";
 
 	for (let index = 0; index < titleLineCnt; index++) {
