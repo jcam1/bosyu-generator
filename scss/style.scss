@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-@import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma/sass/utilities/_all";
 
 .preview-wrapper {
 	position: relative;
@@ -21,3 +20,9 @@ input[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+
+footer {
+	box-shadow: -2px -2px rgba(0, 0, 0, 0.06);
+}
+
+@import "../node_modules/bulma/bulma.sass";

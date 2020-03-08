@@ -4,9 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
-			BOSYU GENERATOR - あなたの文字を、見やすく影響力のある画像に
+			BOSYU GENERATOR - ただの文字を、見やすく影響力のある画像に
 		</title>
 		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -15,7 +22,7 @@
 					BOSYU GENERATOR
 				</h1>
 				<p class="subtitle">
-					あなたの文字を、見やすく影響力のある画像に
+					ただの文字を、見やすく影響力のある画像に
 				</p>
 				<div class="columns">
 					<div class="column"></div>
@@ -35,7 +42,8 @@
 										class="input is-rounded is-medium"
 										id="title"
 										type="text"
-										placeholder="あなたの文字を、見やすく影響力のある画像に"
+										placeholder="ただの文字を、見やすく影響力のある画像に"
+										onkeyup="updateText()"
 									/>
 								</div>
 							</div>
@@ -48,7 +56,28 @@
 										id="body"
 										placeholder="文字を画像にするだけで、影響力はグンと上がります⤴"
 										style="height: 250px;"
+										onkeyup="updateText()"
 									></textarea>
+								</div>
+							</div>
+							<hr />
+							<div class="field" style="margin-top: 1em;">
+								<label class="label is-medium">色</label>
+								<div class="columns" style="margin-top: 0.5em;">
+									<div class="column">
+										<label class="label is-medium"
+											>背景</label
+										>
+										<div
+											class="background-color-pickr"
+										></div>
+									</div>
+									<div class="column">
+										<label class="label is-medium"
+											>文字</label
+										>
+										<div class="font-color-pickr"></div>
+									</div>
 								</div>
 							</div>
 							<div class="field" style="margin-top: 2em;">
@@ -67,6 +96,8 @@
 													id="height"
 													type="number"
 													value="1025"
+													onkeyup="updateXY()"
+													disabled
 												/>
 											</p>
 											<p class="control">
@@ -89,6 +120,8 @@
 													id="width"
 													type="number"
 													value="576"
+													onkeyup="updateXY()"
+													disabled
 												/>
 											</p>
 											<p class="control">
@@ -109,14 +142,18 @@
 			</div>
 		</div>
 
-		<footer class="footer" style="margin-top: 10em;">
+		<footer
+			class="footer"
+			style="margin-top: 8em; padding-top: 30px; padding-bottom: 30px;"
+		>
 			<div class="content has-text-centered">
 				<p>
-					暗号資産古物商市場 株式会社 © 2020
+					Copyright © 2020 日本暗号資産市場株式会社.
 				</p>
 			</div>
 		</footer>
 
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/generator.js"></script>
 	</body>
 </html>
