@@ -8,6 +8,12 @@ const autoprefixer = require("gulp-autoprefixer");
 const notify = require("gulp-notify");
 const browserSync = require("browser-sync").create();
 
+const mode = require("gulp-mode")({
+	modes: ["production", "development"],
+	default: "development",
+	verbose: false
+});
+
 const paths = {
 	root: "dist/",
 	index: "./index.html",
@@ -77,7 +83,7 @@ function jsFunc() {
 			})
 		)
 		.pipe(babel())
-		.pipe(uglify({}))
+		.pipe(mode.production(uglify()))
 		.pipe(gulp.dest(paths.outJs));
 }
 
@@ -90,6 +96,8 @@ function watchFunc(done) {
 }
 
 gulp.task(
-	"default",
+	"development",
 	gulp.parallel(browserSyncFunc, watchFunc, sassFunc, jsFunc, indexFunc)
 );
+
+gulp.task("production", gulp.parallel(sassFunc, jsFunc, indexFunc));
