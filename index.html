@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			BOSYU GENERATOR - ただの文字を、見やすく影響力のある画像に
+		</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="has-text-centered">
+				<h1 class="title is-1" style="margin-top: 1em;">
+					BOSYU GENERATOR
+				</h1>
+				<p class="subtitle">
+					ただの文字を、見やすく影響力のある画像に
+				</p>
+				<div class="columns">
+					<div class="column"></div>
+					<div class="column is-8">
+						<div class="card" style="margin-top: 1em;">
+							<div class="card-content">
+								<div class="preview-wrapper">
+									<canvas id="preview"></canvas>
+								</div>
+							</div>
+						</div>
+						<div style="margin-top: 2em;">
+							<div class="field">
+								<label class="label is-medium">タイトル</label>
+								<div class="control">
+									<input
+										class="input is-rounded is-medium"
+										id="title"
+										type="text"
+										placeholder="ただの文字を、見やすく影響力のある画像に"
+										onkeyup="updateText()"
+									/>
+								</div>
+							</div>
+
+							<div class="field" style="margin-top: 1em;">
+								<label class="label is-medium">本文</label>
+								<div class="control">
+									<textarea
+										class="textarea is-medium"
+										id="body"
+										placeholder="文字を画像にするだけで、影響力はグンと上がります⤴"
+										style="height: 250px;"
+										onkeyup="updateText()"
+									></textarea>
+								</div>
+							</div>
+							<hr />
+							<div class="field" style="margin-top: 1em;">
+								<label class="label is-medium">色</label>
+								<div class="columns" style="margin-top: 0.5em;">
+									<div class="column">
+										<label class="label is-medium"
+											>背景</label
+										>
+										<div
+											class="background-color-pickr"
+										></div>
+									</div>
+									<div class="column">
+										<label class="label is-medium"
+											>文字</label
+										>
+										<div class="font-color-pickr"></div>
+									</div>
+								</div>
+							</div>
+							<div class="field" style="margin-top: 2em;">
+								<label class="label is-medium"
+									>出力サイズ(16:9になるように調整してください)</label
+								>
+								<div class="columns" style="margin-top: 1em;">
+									<div class="column">
+										<label class="label is-medium"
+											>縦</label
+										>
+										<div class="field has-addons">
+											<p class="control">
+												<input
+													class="input is-rounded is-medium"
+													id="height"
+													type="number"
+													value="1025"
+													onkeyup="updateXY()"
+													disabled
+												/>
+											</p>
+											<p class="control">
+												<a
+													class="button is-rounded is-medium is-static"
+												>
+													px
+												</a>
+											</p>
+										</div>
+									</div>
+									<div class="column">
+										<label class="label is-medium"
+											>横</label
+										>
+										<div class="field has-addons">
+											<p class="control">
+												<input
+													class="input is-rounded is-medium"
+													id="width"
+													type="number"
+													value="576"
+													onkeyup="updateXY()"
+													disabled
+												/>
+											</p>
+											<p class="control">
+												<a
+													class="button is-rounded is-medium is-static"
+												>
+													px
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column"></div>
+				</div>
+			</div>
+		</div>
+
+		<footer
+			class="footer"
+			style="margin-top: 8em; padding-top: 30px; padding-bottom: 30px;"
+		>
+			<div class="content has-text-centered">
+				<p>
+					Copyright © 2020 日本暗号資産市場株式会社.
+				</p>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/generator.js"></script>
+	</body>
+</html>
