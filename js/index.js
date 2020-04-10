@@ -1,7 +1,7 @@
 const backgroundPickr = new Pickr({
 	el: ".background-color-pickr",
 	theme: "classic",
-	default: "#333",
+	default: "#1E18C1",
 	swatches: [
 		"rgba(244, 67, 54, 1)",
 		"rgba(233, 30, 99, 0.95)",
@@ -32,7 +32,7 @@ const backgroundPickr = new Pickr({
 const fontPickr = new Pickr({
 	el: ".font-color-pickr",
 	theme: "classic",
-	default: "#939393",
+	default: "#DDE441",
 	swatches: [
 		"rgba(244, 67, 54, 1)",
 		"rgba(233, 30, 99, 0.95)",
@@ -69,7 +69,13 @@ let height = 576;
 let title = "";
 let body = "";
 
-backgroundDraw(height, width, "#333");
+backgroundPickr.on("init", (instance) => {
+	backgroundDraw(height, width, instance.getColor().toRGBA());
+});
+
+fontPickr.on("init", () => {
+	updateText();
+});
 
 backgroundPickr.on("save", (color) => {
 	backgroundDraw(height, width, color.toRGBA());
