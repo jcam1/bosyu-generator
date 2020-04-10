@@ -16,7 +16,7 @@ const backgroundPickr = new Pickr({
 		"rgba(139, 195, 74, 0.85)",
 		"rgba(205, 220, 57, 0.9)",
 		"rgba(255, 235, 59, 0.95)",
-		"rgba(255, 193, 7, 1)"
+		"rgba(255, 193, 7, 1)",
 	],
 	components: {
 		preview: true,
@@ -24,9 +24,9 @@ const backgroundPickr = new Pickr({
 		hue: true,
 		interaction: {
 			input: true,
-			save: true
-		}
-	}
+			save: true,
+		},
+	},
 });
 
 const fontPickr = new Pickr({
@@ -47,7 +47,7 @@ const fontPickr = new Pickr({
 		"rgba(139, 195, 74, 0.85)",
 		"rgba(205, 220, 57, 0.9)",
 		"rgba(255, 235, 59, 0.95)",
-		"rgba(255, 193, 7, 1)"
+		"rgba(255, 193, 7, 1)",
 	],
 	components: {
 		preview: true,
@@ -55,15 +55,15 @@ const fontPickr = new Pickr({
 		hue: true,
 		interaction: {
 			input: true,
-			save: true
-		}
-	}
+			save: true,
+		},
+	},
 });
 
 const preview = document.getElementById("preview");
 const ctx = preview.getContext("2d");
 
-let width = 1025;
+let width = 1024;
 let height = 576;
 
 let title = "";
@@ -71,7 +71,7 @@ let body = "";
 
 backgroundDraw(height, width, "#333");
 
-backgroundPickr.on("save", color => {
+backgroundPickr.on("save", (color) => {
 	backgroundDraw(height, width, color.toRGBA());
 	updateText();
 });
